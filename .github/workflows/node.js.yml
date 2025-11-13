@@ -1,0 +1,29 @@
+name: OpenSea Sync
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # hər 10 dəqiqədə workflow işə düşəcək
+  workflow_dispatch:        # manual trigger üçün də mövcuddur
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'   # Node.js ≥18 lazımdır
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run OpenSea sync
+        run: node syncOpenseaOrders.js
+        env:
+          BACKEND_URL: "https://sənin-app.onrender.com"
+          NFT_CONTRACT_ADDRESS: "0x54a88333F6e7540eA982261301309048aC431eD5"
+          PROXY_CONTRACT_ADDRESS: "0x9656448941C76B79A39BC4ad68f6fb9F01181EC7"
+          OPENSEA_API_KEY: ""  # boş qoymaq olar
