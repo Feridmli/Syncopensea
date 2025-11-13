@@ -7,7 +7,7 @@
 import fetch from "node-fetch";
 
 // --- CONFIG ---
-const BACKEND_URL = "https://sənin-app.onrender.com"; // Sizin backend URL
+const BACKEND_URL = "https://syncopensea.onrender.com"; // Sizin backend URL
 const NFT_CONTRACT_ADDRESS = "0x54a88333F6e7540eA982261301309048aC431eD5";
 const PAGE_SIZE = 50; // OpenSea API limit
 const OPENSEA_API_KEY = ""; // İstəsəniz OpenSea API Key qoyun rate-limit üçün
